@@ -1,10 +1,3 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
-
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
-
-
 var states = new Object();
 
 chrome.extension.onRequest.addListener(
@@ -29,4 +22,21 @@ chrome.extension.onRequest.addListener(
         sendResponse({});
       }
     });
-  });
+  }
+);
+
+function refresh() {
+  var timestamp = Math.floor(Date.now() / 1000);
+  console.log(timestamp);
+  for (var tab in states) {
+    if (states.hasOwnProperty(tab)) {
+      if (timestamp % states[tab] == 0)
+      {
+        console.log("Reloading tab " + tab);
+        chrome.tabs.reload(parseInt(tab));
+      }
+    }
+  }
+}
+
+setInterval(refresh, 1000);

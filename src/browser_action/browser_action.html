@@ -1,0 +1,32 @@
+<!doctype html>
+<style type="text/css">
+    #mainPopup {
+        padding: 5px;
+        height: 140px;
+        width: 100px;
+        font-family: Helvetica, Ubuntu, Arial, sans-serif;
+    }
+    h1 {
+        font-size: 2em;
+    }
+
+    input {
+        width: 100px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button {  
+        opacity: 1;
+    }
+</style>
+
+<div id="mainPopup">
+    <h4>AutoRefresh</h4>
+    <p id="outputId">5 second(s)</p>
+    <input name="input" id="inputId" type="range" class="input" min="1" max="100" step="1" value="5">
+    <button type="button" id="buttonSet">Set</button>
+    <button type="button" id="buttonStop">Stop</button>
+    <p>@yagofp8</p>
+
+    <script src="../../js/popup.js"></script>
+</div>

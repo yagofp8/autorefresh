@@ -46,7 +46,7 @@ function check() {
   getState();
 }
 
-document.getElementById('inputId').onchange = change;
+document.getElementById('inputId').oninput = change;
 document.getElementById('buttonStart').onclick = start;
 document.getElementById('buttonStop').onclick = stop;
 window.onload = check;

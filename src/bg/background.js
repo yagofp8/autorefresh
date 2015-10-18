@@ -15,7 +15,7 @@ chrome.extension.onRequest.addListener(
         sendResponse(state);
       } else if(request.method == "removeState") {
         console.log("Background: removing state");
-        states = delete states[id];
+        delete states[id];
         sendResponse({});
       } else {
         console.log("Background: other method");

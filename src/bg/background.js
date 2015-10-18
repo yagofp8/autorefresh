@@ -32,8 +32,18 @@ function refresh() {
     if (states.hasOwnProperty(tab)) {
       if (timestamp % states[tab] == 0)
       {
-        console.log("Reloading tab " + tab);
-        chrome.tabs.reload(parseInt(tab));
+        var id = parseInt(tab);
+
+        chrome.tabs.get(id, function (t) {
+          if (chrome.runtime.lastError) {
+            console.log(chrome.runtime.lastError.message);
+            delete states[id];
+          } else {
+            var _id = t.id;
+            console.log("Reloading tab " + _id);
+            chrome.tabs.reload(_id);
+          }
+        });
       }
     }
   }
